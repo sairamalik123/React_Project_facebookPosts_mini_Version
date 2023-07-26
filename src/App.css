@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.background{
+  background-color: #2b64d6;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,7 +29,59 @@
 .App-link {
   color: #61dafb;
 }
+.errmsg {
+  color: red;
+}
+.app-check {
+  height: 20px;
+  width: 20px;
+}
+.center {
+  margin-top: 3%;
+}
+.center3 {
+  margin-top: 6%;
+}
+.center1{
+  margin-top: 3%;
+  margin-left: 2%;
+ width: 40%;
+}
+.center2{
+  margin-top: 0%;
+  margin-left: 2%;
+  width: 10%;
+}
 
+.input_comment{
+  margin-top: 4%;
+}
+.input_commentAdd{
+  margin-top: 5%;
+  margin-right: 2%;
+}
+.header {
+  width: 100%;
+  font-size:15px;
+  background-color: rgb(13, 13, 175);
+  color: #fff;
+  padding: 1%;
+}
+a {
+  text-decoration: none !important;
+  color: white !important;
+  padding: 2px;
+}
+.post1{
+  background-color: rgb(103, 130, 130);
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 5%;
+  border: 2px solid rgb(88, 79, 79);
+}
+.btn-primary{
+  margin-left: 2%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +89,140 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* PostsPage.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post-item h3 {
+  margin-top: 0;
+}
+
+.post-item p {
+  margin-bottom: 10px;
+}
+
+.edit-form {
+  display: none;
+  margin-top: 10px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.edit-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-form button:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+.show-edit-form {
+  display: block;
+}
+.post {
+  background-color: rgb(76, 93, 80);
+  margin-bottom: 2%;
+  padding: 5%;
+  border: 2px solid rgb(11, 10, 10);
+}
+.post4 {
+  background-color: grey;
+  margin-bottom: 2%;
+  padding: 5%;
+  border: 2px solid rgb(143, 142, 142);
+}
+.post1{
+  background-color: rgb(135, 132, 137);
+  margin-bottom: 2%;
+  margin-top: 6%;
+  padding: 5%;
+  border: 2px solid rgb(88, 79, 79);
+}
+.post2{
+  background-color: rgb(135, 132, 137);
+  color: white;
+  font-size: small;
+  margin-bottom: 2%;
+  margin-top: 6%;
+  padding: 5%;
+  border: 2px solid rgb(88, 79, 79);
+}
+.bg{
+  height: 100vh;
+  background-color: #b7aeae;
+}
+.post-list{
+ margin-left: 20%;
+  width: 60%;
+  text-align: center;
+}
+.post_title {
+  border: 2px solid rgb(58, 74, 74);
+  width: 40%;
+  padding-top: 0.5%;
+  padding-bottom: 3%;
+  margin-left: 60%;
+  margin-top: 8%;
+
+}
+.post_title2 {
+
+  border: 2px solid rgb(58, 74, 74);
+  width: 40%;
+  padding: 0.5%;
+  margin-left: 30%;
+  margin-top: 8%;
+ 
+}
+.post_title1 {
+
+  border: 2px solid rgb(58, 74, 74);
+  width: 40%;
+  padding: 2%;
+  margin-left: 0%;
+  margin-top: 7%;
+  margin-bottom: 5%;
 }
