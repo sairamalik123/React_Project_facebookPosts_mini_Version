@@ -1,13 +1,15 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../App.css";
+import { checkUserExists, createUser } from "./Api.js";
 
 export default function Register() {
-  const [id, idchange] = useState("");
-  const [email, emailchange] = useState("");
-  const [password, passwordchange] = useState("");
+  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const IsValidate = () => {
+  const isValidate = () => {
     let isproceed = true;
     let errormessage = "Please enter the";
     if (id == null || id === "") {
@@ -34,33 +36,18 @@ export default function Register() {
     return isproceed;
   };
 
-  const checkUserExists = () => {
-    return fetch(`http://localhost:8000/user?username=${id}&email=${email}`)
-      .then((response) => response.json())
-      .then((data) => {
-        return data.length > 0; // If data.length > 0, user with the same username or email exists
-      });
-  };
-
-  const handlesubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let regobj = { id, email, password };
-
-    // Check if the user with the same username or email already exists
-    checkUserExists()
+    checkUserExists(id, email)
       .then((userExists) => {
         if (userExists) {
           alert("User already exists.");
         } else {
-          if (IsValidate()) {
-            fetch("http://localhost:8000/user", {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify(regobj),
-            })
-              .then((resp) => {
+          if (isValidate()) {
+            const userData = { id, email, password };
+            createUser(userData)
+              .then(() => {
                 navigate("/login");
-                console.log(resp);
                 alert("Registered successfully");
               })
               .catch((err) => {
@@ -74,11 +61,12 @@ export default function Register() {
       });
   };
   return (
-    <div className="container-fluid bg">
+    <div className="bg">
+    <div className="container">
       <div className="offset-lg-3 col-lg-6 center3 post">
-        <form className="container" onSubmit={handlesubmit}>
+        <form className="container" onSubmit={handleSubmit}>
           <div className="card">
-            <div className="card-header" style={{ textAlign: "center" }}>
+            <div className="card-header .login_center">
               <h1>User Registration</h1>
             </div>
             <div className="card-body">
@@ -88,7 +76,7 @@ export default function Register() {
                     <label>
                       User Name:<span className="errmsg"> *</span>
                     </label>
-                    <input value={id} onChange={e=>idchange(e.target.value)} className="form-control"></input>
+                    <input value={id} onChange={e=>setId(e.target.value)} className="form-control"></input>
                   </div>
                 </div>
               </div>
@@ -98,7 +86,7 @@ export default function Register() {
                     <label>
                       Email:<span className="errmsg"> *</span>
                     </label>
-                    <input value={email} onChange={e=>emailchange(e.target.value)} className="form-control"></input>
+                    <input value={email} onChange={e=>setEmail(e.target.value)} className="form-control"></input>
                   </div>
                 </div>
               </div>
@@ -108,25 +96,20 @@ export default function Register() {
                     <label>
                       Password:<span className="errmsg"> *</span>
                     </label>
-                    <input type="password" value={password} onChange={e=>passwordchange(e.target.value)} className="form-control"></input>
+                    <input type="password" value={password} onChange={e=>setPassword(e.target.value)} className="form-control"></input>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card-footer">
-              <button
+            <div className="card-footer ">
+              <button 
                 type="submit"
-                style={{  width: "40%",
-                textAlign: "center",
-                marginLeft: "8%",
-                marginRight: "5%", }}
-                className="btn btn-primary"><Link to="/login"></Link>
+                className="btn btn-primary loginsubmit"><Link to="/login"></Link>
                 Register
               </button>
               <Link
-                className="btn btn-success"
+                className="btn btn-success regLogin"
                 to={"/login"}
-                style={{ width: "40%", textAlign: "center" }}
               >
                 Login
               </Link>
@@ -134,6 +117,7 @@ export default function Register() {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }

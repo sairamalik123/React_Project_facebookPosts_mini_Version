@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate,createSearchParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { fetchUserByUsername } from "./Api.js";
+import "../App.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -20,35 +22,34 @@ export default function Login() {
     return true;
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (validate()) {
-      fetch(`http://localhost:8000/user/${username}`)
-        .then((res) => res.json())
-        .then((userData) => {
-          if (Object.keys(userData).length === 0) {
-            alert("Invalid username");
+      try {
+        const userData = await fetchUserByUsername(username);
+        if (Object.keys(userData).length === 0) {
+          alert("Invalid username");
+        } else {
+          if (userData.password === password && userData.email === email) {
+            alert("Successfully logged in");
+            sessionStorage.setItem("username", username);
+            navigate("/");
           } else {
-            if (userData.password === password && userData.email === email) {
-              alert("Successfully logged in");
-              sessionStorage.setItem("username", username);
-              navigate("/");
-            } else {
-              alert("Invalid credentials");
-            }
+            alert("Invalid credentials");
           }
-        })
-        .catch((err) => {
-          alert("Login failed due to: " + err.message);
-        });
+        }
+      } catch (err) {
+        alert("Login failed due to: " + err.message);
+      }
     }
   };
   return (
-    <div className="container-fluid bg">
+    <div className="bg">
+    <div className="container">
       <div className="offset-lg-4 col-lg-4 center3 post1">
         <form className="container" onSubmit={handleLogin}>
           <div className="card">
-            <div className="card-header" style={{ textAlign: "center" }}>
+            <div className="card-header login_center">
               <h1>User Login</h1>
             </div>
             <div className="card-body">
@@ -98,23 +99,13 @@ export default function Login() {
               </div>
             </div>
             <div className="card-footer">
-              <button
-                type="submit"
-                style={{
-                  width: "40%",
-                  textAlign: "center",
-                  marginLeft: "8%",
-                  marginRight: "5%",
-                }}
-                className="btn btn-primary"
-              >
+              <button type="submit"
+                className="btn btn-primary loginsubmit">
                 Login
               </button>
               <Link
-                className="btn btn-success"
-                to={"/register"}
-                style={{ width: "40%", textAlign: "center" }}
-              >
+                className="btn btn-success loginsubmit"
+                to={"/register"}>
                 New User
               </Link>
             </div>
@@ -122,5 +113,8 @@ export default function Login() {
         </form>
       </div>
     </div>
+    </div>
   );
 }
+
+

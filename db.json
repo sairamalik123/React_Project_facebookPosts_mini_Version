@@ -9,6 +9,11 @@
       "id": "saira",
       "email": "sairamaik018@gmail.com",
       "password": "12345"
+    },
+    {
+      "id": "malik",
+      "email": "malik@gmail.com",
+      "password": "malik"
     }
   ],
   "posts": [
@@ -625,42 +630,6 @@
       "id": 108
     },
     {
-      "title": "hhhhhh",
-      "body": "hhh",
-      "userId": "wahab",
-      "id": 109
-    },
-    {
-      "title": "jj",
-      "body": "hhh",
-      "userId": "wahab",
-      "id": 110
-    },
-    {
-      "title": "ggggggg",
-      "body": "ggg",
-      "userId": "wahab",
-      "id": 111
-    },
-    {
-      "title": "hhhh",
-      "body": "aaaaaaa",
-      "userId": "wahab",
-      "id": 112
-    },
-    {
-      "title": "sdds",
-      "body": "sdsdsd",
-      "userId": "wahab",
-      "id": 113
-    },
-    {
-      "title": "asdas",
-      "body": "asdasd",
-      "userId": "wahab",
-      "id": 114
-    },
-    {
       "title": "saira",
       "body": "whghw",
       "userId": "saira",
@@ -671,15 +640,27 @@
       "body": "kdjfkd",
       "userId": "saira",
       "id": 116
+    },
+    {
+      "title": "wahab",
+      "body": "wahab",
+      "userId": "wahab",
+      "id": 117
+    },
+    {
+      "title": "saira malik1",
+      "body": "saira malik1",
+      "userId": "wahab",
+      "id": 118
+    },
+    {
+      "title": "malik",
+      "body": "malik",
+      "userId": "malik",
+      "id": 119
     }
   ],
   "comments": [
-    {
-      "postId": 114,
-      "body": "sudiusifwe",
-      "userId": "saira",
-      "id": 2
-    },
     {
       "postId": 1,
       "body": "jhdjere",
@@ -687,10 +668,28 @@
       "id": 3
     },
     {
-      "postId": 115,
-      "body": "hdcjdcdcdjhejreekrjker",
+      "postId": 118,
+      "body": "saira malik12",
       "userId": "wahab",
-      "id": 4
+      "id": 6
+    },
+    {
+      "postId": 118,
+      "body": "saira malik1",
+      "userId": "wahab",
+      "id": 7
+    },
+    {
+      "postId": 119,
+      "body": "malik here",
+      "userId": "malik",
+      "id": 8
+    },
+    {
+      "postId": 1,
+      "body": "wahab here",
+      "userId": "wahab",
+      "id": 9
     }
   ]
 }
