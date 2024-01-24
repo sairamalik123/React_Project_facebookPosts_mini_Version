@@ -14,6 +14,16 @@
       "id": "malik",
       "email": "malik@gmail.com",
       "password": "malik"
+    },
+    {
+      "id": "saira luqman",
+      "email": "saira@gmail.com",
+      "password": "saira12345"
+    },
+    {
+      "id": "sairamalik123",
+      "email": "sairamalik123@gmail.com",
+      "password": "saira123"
     }
   ],
   "posts": [
